@@ -107,7 +107,7 @@ if you switch to an slave db then ...
 ```
 
 ### MongoImport
-pass a object with the name and the path of the file.
+pass a object with the name,path and type of the file.
 ``` coffee
 file = name : whatever.csv, path : '/path/to/my/files', type: json/csv
 db.mongoimport(file).then (status)->

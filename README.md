@@ -1,5 +1,11 @@
 # mongio-client
 client wrapper for promised-mongo and socket.io
+## Install
+
+add [q](https://github.com/kriskowal/q) for the promises thing and mongio to your html or coffee whatever ...
+
+        script : 'path/to/q.js'
+        script : 'path/to/mongio.js'
 
 ## How To.
 You can use it with [mongio](https://github.com/cjaburto/mongio) the server version, or write the backend yourself.

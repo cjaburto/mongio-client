@@ -57,4 +57,10 @@ db.collection('col name').remove({_id:'54456623d192d9b663648e08'}).then (res)->
 ,(err)->
         console.log err
 ```
-
+### Drop
+``` coffee
+db.collection('your collection').drop().then (res)->
+ ...
+,(err)->
+ ...
+ ```

@@ -64,3 +64,42 @@ db.collection('your collection').drop().then (res)->
 ,(err)->
  ...
  ```
+ 
+ ## extras
+ 
+ ### Password
+ setup the pass using [bcrypt-nodejs](https://www.npmjs.com/package/bcrypt-nodejs).
+ 
+ ``` coffee
+ db.collection('collection name').password({user:'someone',newPass:'',oldPass:''}).then (status)->
+        if status is 'ok' then ...
+        if status is '!match' then ...
+,(err)->
+ ...
+```
+### Login
+the method use [bcrypt-nodejs](https://www.npmjs.com/package/bcrypt-nodejs) for the moment.
+``` coffee
+db.collection().login({user:'',pass:''}).then (status)->
+ ...
+,(err)->
+ ...
+```
+
+### Connect
+this it's usefull when you have to work with an slave db so you can switch connections, if you're are gonna use only your master db it's not really necesary.
+
+``` coffee
+db.collection('users').connect({db:'master'}).then (status)->
+  ...
+,(err)->
+ ...
+```
+if you switch to an slave db then ...
+
+``` coffee
+ ...connect({db:'slave',user:'appuser',field:'the field where my db reference is stored'}).then (status)->
+        ...
+ ,(err)->
+        ...
+```

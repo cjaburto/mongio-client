@@ -44,7 +44,17 @@ db.collection('collection name').findOne({query...}).then (doc)->
 if you want all the docs just pass find(), otherwise ...
 
 ``` coffee
-db.collection('collection name').find({},limit:5,skip:0).then (docs)->
+db.collection('collection name').find({},{},limit:5,skip:0).then (docs)->
         great stuff here!
 ,(err)->
+```
+
+### Remove
+
+``` coffee
+db.collection('col name').remove({_id:'54456623d192d9b663648e08'}).then (res)->
+        etc...
+,(err)->
+        console.log err
+```
 

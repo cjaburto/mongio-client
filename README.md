@@ -33,8 +33,18 @@ db.collection('collection name').update({name:'paulette'},{$set:{name:'new name'
 ```
 
 ### Find One
+the doc , res or however you call it, will return 'ok' or '!exist'
 ``` coffee
 db.collection('collection name').findOne({query...}).then (doc)->
         etc...
 .(err)->
+```
+
+### Find
+if you want all the docs just pass find(), otherwise ...
+
+``` coffee
+db.collection('collection name').find({},limit:5,skip:0).then (docs)->
+        great stuff here!
+,(err)->
 

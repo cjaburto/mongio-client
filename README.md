@@ -60,12 +60,13 @@ db.collection('col name').remove({_id:'54456623d192d9b663648e08'}).then (res)->
 ### Drop
 ``` coffee
 db.collection('your collection').drop().then (res)->
- ...
+        ...
 ,(err)->
- ...
+        ...
  ```
  
- ## extras
+ ## Extras
+ 
  
  ### Password
  setup the pass using [bcrypt-nodejs](https://www.npmjs.com/package/bcrypt-nodejs).

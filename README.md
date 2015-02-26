@@ -18,7 +18,7 @@ you can pass a verify : true, this will validate if the collection exist, the re
 
 ``` coffee
 db.collection('your collection').save({name:'cool name'},verify:true).then (res)->
-  if res is 'exist then blablabla
+  if res is 'exist' then blablabla
   if res is 'ok' then blablab
 ,(err)->
   your awsm err handler!
@@ -31,3 +31,10 @@ just like mongo you pass the query and the update
 db.collection('collection name').update({name:'paulette'},{$set:{name:'new name'}}).then (res)->
   etc...
 ```
+
+### Find One
+``` coffee
+db.collection('collection name').findOne({query...}).then (doc)->
+        etc...
+.(err)->
+

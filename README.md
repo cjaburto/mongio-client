@@ -10,7 +10,7 @@ add [q](https://github.com/kriskowal/q) for the promises thing and mongio to you
 ## How To.
 You can use it with [mongio](https://github.com/cjaburto/mongio) the server version, or write the backend yourself.
 the pattern its the same that promised mongo use(love that!).
-If you set socket.io do it globally if you dont then dont bother mongio will setup and of course you still can used.
+If you set socket.io do it globally if you dont then dont bother mongio will setup and of course you still can use it.
 
 
 ### Save

@@ -14,7 +14,7 @@ If you set socket.io do it globally if you dont then dont bother mongio will set
 
 
 ### Save
-you can pass a verify : true, this will validate if the collection exist, the res var will be equal to 'exist' or 'ok'.
+you can pass a verify : true, this will validate if the doc exist, the res var will be equal to 'exist' or 'ok'.
 
 ``` coffee
 db.collection('your collection').save({name:'cool name'},verify:true).then (res)->

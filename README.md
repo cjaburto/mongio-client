@@ -109,7 +109,7 @@ db.collection('collec')connect({db:'slave',user:'appuser',field:'the field where
 ### MongoImport
 pass a object with the name,path and type of the file.
 ``` coffee
-file = name : whatever.csv, path : '/path/to/my/files', type: 'json/csv'
+file = name : 'whatever.csv', path : '/path/to/my/files', type: 'json/csv'
 db.mongoimport(file).then (status)->
         ...
 ,(err)->

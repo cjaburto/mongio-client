@@ -42,12 +42,18 @@ db.collection('collection name').findOne({query...}).then (doc)->
 ```
 
 ### Find
-if you want all the docs just pass find(), otherwise ...
+you can use it pretty much like in the mdb shell ...
 
 ``` coffee
-db.collection('collection name').find({},{},limit:5,skip:0).then (docs)->
-        great stuff here!
-,(err)->
+db.collection('collection name').find().complete (obj)->
+        if obj.status is 'ok' then ...
+        if obj.status is 'err' then ...
+```
+or
+
+```
+db.collection('...').find().limit(10).skip(0).sort({_id:-1}).complete (obj)->
+        ...
 ```
 
 ### Remove

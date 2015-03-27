@@ -2,7 +2,7 @@
 client wrapper for promised-mongo and socket.io
 ## Install
 
-add [q](https://github.com/kriskowal/q) for the promises thing, mongio and of course socket.io to your html or coffee whatever ...
+add [q](https://github.com/kriskowal/q) for the promises thing, mongio and of course socket.io to your html, coffee or whatever ...
 
         script : '/socket.io/socket.io.js'
         script : 'path/to/q.js'

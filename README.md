@@ -26,7 +26,7 @@ db.collection('your collection').save({name:'cool name'},verify:true).then (res)
 ```
 
 ### Update
-just like mongo you pass the query and the update
+just like mongo you set up the query and the update
 
 ``` coffee
 db.collection('collection name').update({name:'paulette'},{$set:{name:'new name'}}).then (res)->

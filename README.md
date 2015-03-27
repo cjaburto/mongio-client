@@ -96,7 +96,7 @@ db.collection().login({user:'',pass:''}).then (status)->
 ```
 
 ### Connect
-this it's usefull when you have to work with an slave db so you can switch connections, if you're are gonna use only your master db it's not really necesary, unless you have some difficulties
+this it's usefull when you have to work with an slave db so you can switch connections, if you're are going to use only your master db it's not really necesary, unless you have some difficulties
 
 ``` coffee
 db.collection().connect({db:'master'}).then (status)->

@@ -14,6 +14,30 @@ the pattern its the same that promised mongo use it(love that!).
 If you set socket.io do it globally if you dont then dont bother mongio will setup and of course you still can use it.
 
 
+### Connect
+this it's usefull when you have to work with an slave db so you can switch connections, if you're are going to use only your master db it's not really necesary, unless you have some difficulties, some times you have to define it.
+
+
+``` coffee
+db.collection().connect({db:'master'})
+```
+
+``` coffee
+db.collection().connect({db:'master'}).then (status)->
+        if status is 'err' then 'damn shit'
+        if status is 'ok' then 'nice!!!'
+,(err)->
+        ...
+```
+if you switch to an slave db then ...
+
+``` coffee
+db.collection('collec').connect({db:'slave',user:'appuser',field:'the field where my db reference is stored'}).then (status)->
+        ...
+ ,(err)->
+        ...
+```
+
 ### Save
 you can set up a verify : true, this will validate if the doc exist, the res var will be equal to 'exist' or 'ok'.
 
@@ -92,24 +116,6 @@ the method use [bcrypt-nodejs](https://www.npmjs.com/package/bcrypt-nodejs) for 
 db.collection().login({user:'',pass:''}).then (status)->
         ...
 ,(err)->
-        ...
-```
-
-### Connect
-this it's usefull when you have to work with an slave db so you can switch connections, if you're are going to use only your master db it's not really necesary, unless you have some difficulties
-
-``` coffee
-db.collection().connect({db:'master'}).then (status)->
-        ...
-,(err)->
-        ...
-```
-if you switch to an slave db then ...
-
-``` coffee
-db.collection('collec').connect({db:'slave',user:'appuser',field:'the field where my db reference is stored'}).then (status)->
-        ...
- ,(err)->
         ...
 ```
 

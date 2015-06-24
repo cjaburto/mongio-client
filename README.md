@@ -15,7 +15,7 @@ If you set socket.io do it globally if you dont then dont bother mongio will set
 
 
 ### Connect
-this it's usefull when you have to work with an slave db so you can switch connections, if you're are going to use only your master db it's not really necesary, unless you have some difficulties, some times you have to define it.
+this it's usefull when you have to work with an slave db so you can switch connections, if you're are going to use only your master db it's not really necesary, unless you have some difficulties, some times you have to define it, in previus version it was no need to define the connection, rigth now we have (dont know why , i'll work on it).
 
 
 ``` coffee

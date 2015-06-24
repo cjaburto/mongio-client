@@ -29,7 +29,7 @@ db.collection().connect({db:'master'}).then (status)->
 ,(err)->
         ...
 ```
-if you switch to an slave db then ... the collection here is the collection in the db-slave where the users data are stored.
+if you switch to an slave db then ... the collection here is the collection in the db-slave where the users data are stored for example.
 
 ``` coffee
 db.collection('collec').connect({db:'slave',user:'appuser',field:'the field where my db reference is stored'}).then (status)->

@@ -8,33 +8,28 @@ add [q](https://github.com/kriskowal/q) for the promises thing, mongio and of co
         script : 'path/to/q.js'
         script : 'path/to/mongio.js'
 
+
+## Re-Check : remove , find ,findOne, update, save ,chkpasswd
+
 ## How To.
 You can use it with [mongio](https://github.com/cjaburto/mongio) the server version, or write the backend yourself.
 the pattern its the same that promised mongo use it(love that!).
 If you set socket.io do it globally if you dont then dont bother mongio will setup and of course you still can use it.
 
-
-### Connect
-this it's usefull when you have to work with an slave db so you can switch connections, if you're are going to use only your master db it's not really necesary, unless you have some difficulties, some times you have to define it, in previus version it was no need to define the connection, rigth now we have (dont know why , i'll work on it).
-
-
+##Connect
 ``` coffee
-db.collection().connect({db:'master'})
+if a is 'x' then db.connect 'somedb'
+if a is 'y' then db.connect 'otherdb'
 ```
 
 ``` coffee
-db.collection().connect({db:'master'}).then (status)->
-        if status is 'err' then 'damn shit'
-        if status is 'ok' then 'nice!!!'
+db.connect('some db')
+```
+
+``` coffee
+db.connect('somedb').then (status)->
+  console.log status
 ,(err)->
-        ...
-```
-if you switch to an slave db then ... the collection here is the collection in the db-slave where the users data are stored for example.
-
-``` coffee
-db.collection('collec').connect({db:'slave',user:'appuser',field:'the field where my db reference is stored'}).then (status)->
-        ...
- ,(err)->
         ...
 ```
 
@@ -50,7 +45,24 @@ db.collection('your collection').save({name:'cool name'},verify:true).then (res)
 ```
 
 ### Update
-just like mongo you set up the query and the update
+just like mongo you set up the query the update and the options
+
+``` coffee
+db.collection('').update(query,update,options)
+```
+
+``` coffee
+db.collection('contacts').update({},{$pull:{contact:{name:'michael jordan'}}},{multi:true})
+.then (r)->
+  ...
+,(err)->
+  ...
+```
+
+if you do not set de multi , then it will be false.
+``` coffee
+db.collection('contacts').update({address:'...'},{$pull:{contact:{name:'remi lacroix'}}}).then (r)-> ...
+```
 
 ``` coffee
 db.collection('collection name').update({name:'paulette'},{$set:{name:'new name'}}).then (res)->
@@ -110,13 +122,13 @@ db.collection('collection name').password({user:'someone',newPass:'',oldPass:''}
         ...
 ```
 
-### Login
-the method use [bcrypt-nodejs](https://www.npmjs.com/package/bcrypt-nodejs) for the moment.
+### checkPass
+it may be useful ...
 ``` coffee
-db.collection().login({user:'',pass:''}).then (status)->
-        ...
+db.chkpasswd({ukey:'unencrypted key' , ekey:'encrypted key'}).then (res)->
+  ...
 ,(err)->
-        ...
+  ...
 ```
 
 ### MongoImport

@@ -59,7 +59,6 @@ db.collection('contacts').update({},{$pull:{contact:{name:'michael jordan'}}},{m
   ...
 ```
 
-if you do not set de multi , then it will be false.
 ``` coffee
 db.collection('contacts').update({address:'...'},{$pull:{contact:{name:'remi lacroix'}}}).then (r)-> ...
 ```

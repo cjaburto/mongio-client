@@ -32,10 +32,13 @@ db.connect('somedb').then (status)->
 ,(err)->
         ...
 ```
-
+##Collection
 ```coffee
-collection = db.collection 'collection'
-collection.find()...
+db.collection('mycollection').update ...
+```
+```coffee
+users = db.collection 'users'
+users.find()...
 ```
 
 ### Save

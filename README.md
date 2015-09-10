@@ -33,6 +33,11 @@ db.connect('somedb').then (status)->
         ...
 ```
 
+```coffee
+collection = db.collection 'collection'
+collection.find()...
+```
+
 ### Save
 you can set up a verify : true, this will validate if the doc exist, the res var will be equal to 'exist' or 'ok'.
 

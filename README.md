@@ -114,20 +114,33 @@ db.collection('your collection').drop().then (res)->
 ,(err)->
         ...
  ```
- 
-## Extras.
 
- 
-### Password
-setup the pass using [bcrypt-nodejs](https://www.npmjs.com/package/bcrypt-nodejs).
- 
+
+### Count
 ``` coffee
-db.collection('collection name').password({user:'someone',newPass:'',oldPass:''}).then (status)->
-        if status is 'ok' then ...
-        if status is '!match' then ...
+db.collection('x').count(query).then (r)->
+  ...
 ,(err)->
-        ...
+  ...
 ```
+
+### Collection Stats
+``` coffee
+db.collection(x).stats().then(s)-> ...
+
+```
+
+
+### Db Stats
+
+``` coffee
+db.stats().then (s)->
+  console.log s
+,(err)->
+  console.log err
+```
+
+## Extra.
 
 ### checkPass
 it may be useful ...
@@ -136,14 +149,4 @@ db.chkpasswd({ukey:'unencrypted key' , ekey:'encrypted key'}).then (res)->
   ...
 ,(err)->
   ...
-```
-
-### MongoImport
-pass a object with the name,path and type of the file.
-``` coffee
-file = name : 'whatever.csv', path : '/path/to/my/file', type: 'json/csv'
-db.mongoimport(file).then (status)->
-        ...
-,(err)->
-        ...
 ```

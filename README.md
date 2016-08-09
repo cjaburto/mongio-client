@@ -90,6 +90,7 @@ db.collection('collection name').find().done().then (obj)->
   return obj
 .then (obj)->
   console.log obj[9]
+```
 
 or
 

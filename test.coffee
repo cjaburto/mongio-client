@@ -3,6 +3,11 @@ db.use 'escalamientos'
 
 test = db.collection 'test'
 
+test.count().then (c)->
+  console.log c
+,(err)->
+  console.log err
+
 #test.stats().then (s)->
 #  console.log s
 #,(err)->

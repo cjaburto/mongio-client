@@ -106,7 +106,20 @@ class DB
       new Promise (resolve , reject)->
         socket.emit 'colStats' , col , (obj)->
           if obj.status is 'ok'   then resolve obj.res
-          if obj.status is 'err'  then resolve obj.err
+          if obj.status is 'err'  then reject obj.err
+
+    count : (query)->
+      new Promise (resolve , reject)->
+       # console.log q
+       # query = {}
+       # if q isnt undefined then query = q
+       # console.log query
+        gen = {}
+        gen.collection = col
+        gen.query      = query
+        socket.emit 'count' , gen , (obj)->
+          if obj.status is 'ok'   then resolve  obj.res
+          if obj.status is 'err'  then reject   obj.err
 
     drop : ->
       new Promise (resolve , reject)->

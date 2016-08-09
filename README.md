@@ -2,32 +2,26 @@
 client wrapper for promised-mongo and socket.io
 ## Install
 
-add [q](https://github.com/kriskowal/q) for the promises thing, mongio and of course socket.io to your html, coffee or whatever ...
-
         script : '/socket.io/socket.io.js'
-        script : 'path/to/q.js'
         script : 'path/to/mongio.js'
-
-
-## Re-Check : remove , find ,findOne, update, save ,chkpasswd
 
 ## How To.
 You can use it with [mongio](https://github.com/cjaburto/mongio) the server version, or write the backend yourself.
-the pattern its the same that promised mongo use it(love that!).
-If you set socket.io do it globally if you dont then dont bother mongio will setup and of course you still can use it.
+the pattern its the same that promised mongo(love that!).
+If you set socket.io do it globally if you dont, then dont bother mongio will do it.
 
-##Connect
+##Use
 ``` coffee
-if a is 'x' then db.connect 'somedb'
-if a is 'y' then db.connect 'otherdb'
+if a is 'x' then db.use 'somedb'
+if a is 'y' then db.use 'otherdb'
 ```
 
 ``` coffee
-db.connect('some db')
+db.use('some db')
 ```
 
 ``` coffee
-db.connect('somedb').then (status)->
+db.use('somedb').then (status)->
   console.log status
 ,(err)->
         ...
@@ -88,14 +82,19 @@ db.collection('collection name').findOne({query...}).then (doc)->
 you can use it pretty much like in the mdb shell ...
 
 ``` coffee
-db.collection('collection name').find().complete (obj)->
-        if obj.status is 'ok' then ...
-        if obj.status is 'err' then ...
-```
+db.collection('collection name').find().done().then (obj)->
+  console.log obj
+  return obj
+.then (obj)->
+  console.log obj[0]
+  return obj
+.then (obj)->
+  console.log obj[9]
+
 or
 
 ```
-db.collection('...').find().limit(10).skip(0).sort({_id:-1}).complete (obj)->
+db.collection('...').find().limit(10).skip(0).sort({_id:-1}).done().then (obj)->
         ...
 ```
 
@@ -129,7 +128,6 @@ db.collection('x').count(query).then (r)->
 db.collection(x).stats().then(s)-> ...
 
 ```
-
 
 ### Db Stats
 

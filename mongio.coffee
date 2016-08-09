@@ -110,10 +110,6 @@ class DB
 
     count : (query)->
       new Promise (resolve , reject)->
-       # console.log q
-       # query = {}
-       # if q isnt undefined then query = q
-       # console.log query
         gen = {}
         gen.collection = col
         gen.query      = query
